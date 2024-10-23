@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ---------------------------- */
+  /* Typefaces  */
+  /* ---------------------------- */
+
+  @font-face {
+    font-family: "NexaText";
+    font-weight: 300;
+    font-style: normal;
+    src: url("../assets/fonts/NexaText-Book.woff") format("woff"),
+      url("../assets/fonts/NexaText-Book.woff2") format("woff2"),
+      url("../assets/fonts/NexaText-Book.eot") format("eot");
+  }
+
+  @font-face {
+    font-family: "NexaText";
+    font-weight: 300;
+    font-style: italic;
+    src: url("../assets/fonts/NexaText-BookItalic.woff") format("woff"),
+      url("../assets/fonts/NexaText-BookItalic.woff2") format("woff2"),
+      url("../assets/fonts/NexaText-BookItalic.eot") format("eot");
+  }
+
+  @font-face {
+    font-family: "NexaText";
+    font-weight: 400;
+    font-style: normal;
+    src: url("../assets/fonts/NexaText-Regular.woff") format("woff"),
+      url("../assets/fonts/NexaText-Regular.woff2") format("woff2"),
+      url("../assets/fonts/NexaText-Regular.eot") format("eot");
+  }
+
+  @font-face {
+    font-family: "NexaText";
+    font-weight: 400;
+    font-style: italic;
+    src: url("../assets/fonts/NexaText-RegularItalic.woff") format("woff"),
+      url("../assets/fonts/NexaText-RegularItalic.woff2") format("woff2"),
+      url("../assets/fonts/NexaText-RegularItalic.eot") format("eot");
+  }
+
+  @font-face {
+    font-family: "NexaText";
+    font-weight: 700;
+    font-style: normal;
+    src: url("../assets/fonts/NexaText-Bold.woff") format("woff"),
+      url("../assets/fonts/NexaText-Bold.woff2") format("woff2"),
+      url("../assets/fonts/NexaText-Bold.eot") format("eot");
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+}

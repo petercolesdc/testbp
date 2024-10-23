@@ -1,0 +1,30 @@
+<title>{% if title %}{{ title | safe | trim }}&mdash;{{ meta.title | safe | trim }}{% else %}{{ meta.title | safe | trim }}{% endif %}</title>
+<link rel="stylesheet" href="{{ meta.url }}/style/style.css"/>
+<link rel="icon" href="{{ meta.url }}/display/{{ meta.siteicon }}" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+<meta name="description" content="{% if description %}{{ description | safe | trim }}{% else %}{{ meta.description | safe | trim }}{% endif %}"/>
+<meta name="theme-color" content="{{ meta.theme }}">
+{% if noindex == true %}<meta name="robots" content="noindex">{% endif %}
+<script>
+	// Accessibility hook for tabbing
+	function handleFirstTab(e) {
+		if (e.keyCode === 9) { // the "I am a keyboard user" key
+				document.body.classList.add('user-is-tabbing');
+				window.removeEventListener('keydown', handleFirstTab);
+		}
+	}
+	window.addEventListener('keydown', handleFirstTab);
+
+	// External links in new tab/window
+	window.addEventListener("DOMContentLoaded", e =>
+	{
+	  document.querySelectorAll('a[href]').forEach(a =>
+	  {
+		if (location.hostname == new URL(a.href).hostname)
+		  return;
+		a.target = "_blank";
+		a.rel = "noreferrer noopener";
+	  });
+	});
+</script>

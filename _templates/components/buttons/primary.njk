@@ -1,0 +1,9 @@
+---
+permalink: "components/buttons/primary.html"
+---
+{% extends '_layouts/component.njk' %}
+{% import '_includes/macros/buttons.njk' as btn with context %}
+
+{%- block content -%}
+{{ btn.btnPrimary (text="Primary button", href="#link-here", ariaControls="", isDisabled="", hasIcon=true) }}
+{%- endblock -%}

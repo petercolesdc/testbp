@@ -1,0 +1,31 @@
+
+> build-storybook
+> storybook build --output-dir=/var/folders/dh/k796kss90jbg1c4w34_15yjm0000gn/T/chromatic--1500-bve90MInB7yx
+
+@storybook/core v8.3.6
+
+info => Cleaning outputDir: ../../../../../var/folders/dh/k796kss90jbg1c4w34_15yjm0000gn/T/chromatic--1500-bve90MInB7yx
+info => Loading presets
+info => Building manager..
+info => Manager built (162 ms)
+info => Building preview..
+WARN No story files found for the specified pattern: _site/**/*.stories.mdx
+info Addon-docs: using MDX3
+info => Using implicit CSS loaders
+info => Using default Webpack5 setup
+info => Copying static files: _site/assets at ../../../../../var/folders/dh/k796kss90jbg1c4w34_15yjm0000gn/T/chromatic--1500-bve90MInB7yx
+info => Copying static files: _site/style at ../../../../../var/folders/dh/k796kss90jbg1c4w34_15yjm0000gn/T/chromatic--1500-bve90MInB7yx
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   564.11fa6e1d.iframe.bundle.js (1.15 MiB)
+WARN   882.48e9d82b.iframe.bundle.js (945 KiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (1020 KiB)
+WARN       runtime~main.c5b1df2b.iframe.bundle.js
+WARN       882.48e9d82b.iframe.bundle.js
+WARN       main.ac57fd22.iframe.bundle.js
+WARN 
+info => Preview built (7.06 s)
+info => Output directory: /var/folders/dh/k796kss90jbg1c4w34_15yjm0000gn/T/chromatic--1500-bve90MInB7yx

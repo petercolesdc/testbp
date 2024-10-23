@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	{% include '../_includes/partials/skaffold/head.njk' %}
+	{% block headScript %}
+	{% endblock %}
+</head>
+<body>
+	<section class="px-12 py-3" id="main-content">
+		{% block content %}
+		{% endblock %}
+	</section>
+	{% block footerScript %}
+	{% endblock %}
+</body>
+</html>

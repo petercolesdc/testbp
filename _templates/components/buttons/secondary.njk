@@ -1,0 +1,9 @@
+---
+permalink: "components/buttons/secondary.html"
+---
+{% extends '_layouts/component.njk' %}
+{% import '_includes/macros/buttons.njk' as btn with context %}
+ 
+{%- block content -%}
+{{ btn.btnSecondary (text="Secondary button", href="#link-here", ariaControls="", isDisabled="", hasIcon=true) }}
+{%- endblock -%}

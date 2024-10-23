@@ -1,0 +1,40 @@
+{
+  "scripts": {
+    "stop": "killall node",
+    "start": "ELEVENTY_ENV=development eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch",
+    "start-inc": "ELEVENTY_ENV=development eleventy --serve --quiet --incremental & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch",
+    "build-remove": "rm -rf _site/",
+    "build-assets": "cp -r assets/display _site/assets && cp -r assets/avatars _site/assets && cp -r assets/img _site/assets && cp -r assets/video _site/assets",
+    "build-local": "ELEVENTY_ENV=development eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css",
+    "build-stage": "ELEVENTY_ENV=staging eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css",
+    "build-all-stage": "npm run build-remove && npm run build-stage",
+    "tailwind-config-viewer": "tailwind-config-viewer -o -c, --config styles/tailwind.config.js",
+    "watch": "npm run build-remove && npm run build-local && npm run build-assets && npm run start",
+    "stage": "npm run build-all-stage",
+    "surge": "npm run build-all-stage && surge _site eqx-platypus.surge.sh",
+    "config": "npm run tailwind-config-viewer",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy-storybook": "npx chromatic --project-token=chpt_839ba6fc74e8774"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-interactions": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/html": "^8.3.5",
+    "@storybook/html-webpack5": "^8.3.5",
+    "@storybook/test": "^8.3.5",
+    "chromatic": "^11.14.0",
+    "storybook": "^8.3.5",
+    "tailwind-config-viewer": "^2.0.4",
+    "tailwindcss": "^3.4.13"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15"
+  }
+}

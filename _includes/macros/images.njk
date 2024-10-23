@@ -1,0 +1,49 @@
+{% macro standardResize(path, alias, altTag) %}
+	{% if meta.url === "" %}
+		{% if alias %}
+			<img src="{{ meta.url }}/assets/img/{{ path }}{{ alias }}" alt="{{ altTag }}">
+		{% else %}
+			<img src="{{ meta.url }}/assets/img/Fallback.jpg" alt="The Equinix Logo on a light background">
+		{% endif %}
+	{% else %}
+		{% if alias %}
+			{% image "./assets/img/"+path+alias, altTag %}
+		{% else %}
+			{% image "./assets/img/articles/Fallback.jpg", "The Equinix Logo on a light background" %}
+		{% endif %}
+	{% endif %}
+{% endmacro %}
+
+{% macro thumbResize(path, alias, altTag) %}
+	{% if meta.url === "" %}
+		{% if alias %}
+			<img src="{{ meta.url }}/assets/img/{{ path }}{{ alias }}" alt="{{ altTag }}">
+		{% else %}
+			<img src="{{ meta.url }}/assets/img/Fallback.jpg" alt="The Equinix Logo on a light background">
+		{% endif %}
+	{% else %}
+		{% if alias %}
+			{% imageThumb "./assets/img/"+path+alias, altTag %}
+		{% else %}
+			{% imageThumb "./assets/img/articles/Fallback.jpg", "The Equinix Logo on a light background" %}
+		{% endif %}
+	{% endif %}
+{% endmacro %}
+
+{% macro avatarResize(path, alias, altTag) %}
+    {% if meta.url === "" %}
+        {% if alias %}
+            <img src="{{ meta.url }}/assets/avatars/{{ path }}{{ alias }}" alt="{{ altTag }}">
+        {% else %}
+            <!-- Fallback here -->
+            <img src="{{ meta.url }}/assets/avatars/Fallback.jpg" alt="{{ altTag }}">
+        {% endif %}
+    {% else %}
+        {% if alias %}
+            {% imageThumb "./assets/avatars/"+path+alias, altTag %}
+        {% else %}
+            <!-- Fallback here -->
+            <img src="{{ meta.url }}/assets/avatars/Fallback.jpg" alt="{{ altTag }}">
+        {% endif %}
+    {% endif %}
+{% endmacro %}

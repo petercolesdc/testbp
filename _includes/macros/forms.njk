@@ -1,0 +1,107 @@
+{% macro input(type, id, label, labelClass, hideLabel, placeholder, autocomplete, required, mod) %}
+	<label class="{{ labelClass | safe | trim }}" for="{{ id | safe | trim }}">
+		<span class="{% if hideLabel %} sr-only{% endif %}">{{ label | safe | trim }}</span>
+		<input 
+			id="{{ id | safe | trim }}" 
+			type="{{ type | safe | trim }}" 
+			{% if disabled %} disabled {% endif %}
+			{% if autocomplete %} autocomplete="{{ autocomplete | safe | trim }}" {% endif %} 
+			{% if required == true %} required aria-required="true" {% endif %} 
+			{% if placeholder %} placeholder="{{ placeholder | safe | trim }}" {% endif %}
+			class=" {{ mod | safe | trim }} {% if disabled %} cursor-not-allowed opacity-50 {% endif %}">
+	</label>
+{% endmacro %}
+
+{% macro selectData(id, label, labelClass, hideLabel, required, mod, data) %}
+	<label class="{{ labelClass | safe | trim }}" for="{{ id | safe | trim }}">
+		<span class="{% if hideLabel %} sr-only{% endif %}">{{ label | safe | trim }}</span>
+		<select 
+			id="{{ id | safe | trim }}" 
+			name="{{ id | safe | trim }}" 
+			{% if disabled %} disabled {% endif %}
+			{% if required == true %} required aria-required="true" {% endif %} 
+			class=" {{ mod | safe | trim }} {% if disabled %} cursor-not-allowed opacity-50 {% endif %}">
+			{% for item in data %}
+				<option value="{{ item.label | slugify }}">{{ item.label | safe | trim }}</option>
+			{% endfor %}
+		</select>
+	</label>
+{% endmacro %}
+
+{% macro textarea(id, label, labelClass, hideLabel, placeholder, size="3", required, mod) %}
+	<label class="{{ labelClass | safe | trim }}" for="{{ id | safe | trim }}">
+		<span class="{% if hideLabel %}sr-only{% endif %}">{{ label | safe | trim }}</span>
+		<textarea 
+			id="{{ id | safe | trim }}" 
+			rows="{{ size }}"
+			{% if required == true %} required aria-required="true" {% endif %} 
+			{% if placeholder %} placeholder="{{ placeholder | safe | trim }}" {% endif %}
+			class=" {{ mod | safe | trim }}"></textarea>
+	</label>
+{% endmacro %}
+
+{% macro radio(id, name, label, labelClass, checked, mod, description,size) %}
+	<div class="{{ mod | safe | trim }}">
+		{% if size == "lg" %}
+			<label class="{{ labelClass | safe | trim }} inline-flex items-center cursor-pointer" for="{{ id | safe | trim }}">
+				<input 
+					type="radio"
+					class="w-5 h-5" 
+					id="{{ id | safe | trim }}" 
+					name="{{ name | safe | trim }}" 
+					value="{{ id | safe | trim }}" 
+					{% if checked == true %} checked {% else %}{% endif %}>
+						<span class="ml-2">{{ label | safe | trim }}</span>
+			</label>
+			{% if description %}
+				<span class="">{{ description | safe | trim }}</span>
+			{% endif %}
+		{% else %}
+			<label class="{{ labelClass | safe | trim }} inline-flex items-center cursor-pointer" for="{{ id | safe | trim }}">
+				<input 
+					type="radio" 
+					id="{{ id | safe | trim }}" 
+					name="{{ name | safe | trim }}" 
+					value="{{ id | safe | trim }}" 
+					{% if checked == true %} checked {% else %}{% endif %}>
+						<span class="ml-2">{{ label | safe | trim }}</span>
+			</label>
+			{% if description %}
+				<span class="">{{ description | safe | trim }}</span>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro checkbox(id, name, label, labelClass, checked, mod, description, size) %}
+	<div class="{{ mod | safe | trim }}">
+		{% if size == "lg" %}
+			<label class="{{ labelClass | safe | trim }} inline-flex items-center cursor-pointer" for="{{ id | safe | trim }}">
+				<input 
+					type="checkbox" 
+					class="w-5 h-5" 
+					id="{{ id | safe | trim }}" 
+					name="{{ name | safe | trim }}" 
+					value="{{ id | safe | trim }}" 
+					{% if checked == true %} checked {% else %}{% endif %}>
+					<span class="ml-2">{{ label | safe | trim }}</span>
+			</label>
+			{% if description %}
+				<span class="">{{ description | safe | trim }}</span>
+			{% endif %}
+		{% else %}
+			<label class="{{ labelClass | safe | trim }} inline-flex items-center cursor-pointer" for="{{ id | safe | trim }}">
+				<input 
+					type="checkbox" 
+					id="{{ id | safe | trim }}" 
+					name="{{ name | safe | trim }}" 
+					value="{{ id | safe | trim }}" 
+					{% if checked == true %} checked {% else %}{% endif %}>
+						<span class="ml-2">{{ label | safe | trim }}</span>
+			</label>
+			{% if description %}
+				<span class="">{{ description | safe | trim }}</span>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endmacro %}

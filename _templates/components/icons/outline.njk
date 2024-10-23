@@ -1,0 +1,14 @@
+---
+permalink: "components/icons/outline.html"
+dataKey: "iconsOutline"
+---
+{% extends '_layouts/component.njk' %}
+{% set dataSet = patterns[dataKey] %}
+{% import '_includes/macros/icons.njk' as ico with context %}
+
+{%- block content -%}
+{%- for object in dataSet -%}
+	{% set name = object.name %}
+{{ ico.icon (file=name) }}
+{%- endfor -%}
+{%- endblock -%}
