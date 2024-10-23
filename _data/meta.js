@@ -13,4 +13,5 @@ module.exports = {
   theme: "#e91c24",
   siteicon: "favicon-16x16.png",
   componentRoot: "components",
+  templateRoot: "templates",
 };

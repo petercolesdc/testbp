@@ -8,6 +8,11 @@ const markdownIt = require("markdown-it");
 const imageResize = require("./_functions/imageResize.js");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setServerOptions({
+    liveReload: true,
+    port: 8080,
+    showAllHosts: true,
+  });
   // ********************************************************************** //
   // Attach stories controllers for Story book to components on export
   // Define one for every component type, and match paths accordingly
@@ -75,15 +80,5 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return md.render(content);
-  });
-
-  //-----------------------------------------------------
-  // Deep functions
-  //-----------------------------------------------------
-
-  eleventyConfig.setServerOptions({
-    liveReload: true,
-    port: 8080,
-    showAllHosts: true,
   });
 };

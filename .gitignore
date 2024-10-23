@@ -7,3 +7,4 @@ _site/
 _tmp/
 .DS_Store
 .nova
+.build-storybook.log

@@ -1,0 +1,5 @@
+{
+  "showPosts": true,
+  "eleventyExcludeFromCollections": false,
+  "permalink": "{{ meta.templateRoot }}/global/{{ page.fileSlug }}/"
+}

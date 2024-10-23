@@ -14,11 +14,10 @@
     "surge": "npm run build-all-stage && surge _site eqx-platypus.surge.sh",
     "config": "npm run tailwind-config-viewer",
     "storybook": "storybook dev -p 6006",
-    "deploy-storybook-chormatic": "npx chromatic --project-token=chpt_839ba6fc74e8774",
     "homepage": "http://petercolesdc.github.io/testbp",
-    "predeploy": "storybook build",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy": "stage && build-storybook && deploy-storybook"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
@@ -32,7 +31,6 @@
     "@storybook/html": "^8.3.5",
     "@storybook/html-webpack5": "^8.3.5",
     "@storybook/test": "^8.3.5",
-    "chromatic": "^11.14.0",
     "gh-pages": "^6.2.0",
     "storybook": "^8.3.5",
     "tailwind-config-viewer": "^2.0.4",

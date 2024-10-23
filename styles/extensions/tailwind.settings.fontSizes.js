@@ -28,15 +28,15 @@ const clamp = (multiMin = 0, multiMax = null) => {
 
 // Set the font sizes here
 module.exports = {
-  xs: clamp(-2.5),
-  sm: clamp(-1.75),
+  xs: clamp(-2),
+  sm: clamp(-0.5),
   base: clamp(0),
   lg: clamp(0.75),
   xl: clamp(1.66),
-  "2xl": clamp(3),
-  "3xl": clamp(4),
-  "4xl": clamp(5),
-  "5xl": clamp(6),
-  "6xl": clamp(7),
-  "7xl": clamp(8),
+  "2xl": clamp(2),
+  "3xl": clamp(3),
+  "4xl": clamp(4),
+  "5xl": clamp(5),
+  "6xl": clamp(6),
+  "7xl": clamp(7),
 };
