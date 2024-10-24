@@ -6,7 +6,7 @@ export default {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        sourceState: "hide",
       },
       subtitle: "Simple card with topline over-rule",
       description: {
@@ -31,6 +31,14 @@ export default {
       defaultValue:
         "How this brand increased data throughput by 255% and reduced costs by 50%",
     },
+    headingLevel: {
+      control: {
+        type: "select",
+      },
+      options: ["h2", "h3", "h4", "h5", "h6"], // Allow changing between h2-h6
+      description: "Change the heading level",
+      defaultValue: "h2",
+    },
     descriptionText: {
       control: "text",
       description: "Text for the description",
@@ -43,7 +51,13 @@ export default {
 // Template function for rendering the HTML dynamically with args
 const Controller =
   (htmlSnippet) =>
-  ({ flagFeatured, overlineText, headlineText, descriptionText }) => {
+  ({
+    flagFeatured,
+    overlineText,
+    headlineText,
+    headingLevel,
+    descriptionText,
+  }) => {
     // Create a container to modify the HTML
     const container = document.createElement("div");
     container.innerHTML = htmlSnippet;
@@ -72,17 +86,27 @@ const Controller =
       featured.remove();
     }
 
-    // Update the text parameters
+    // Update the over-line text
     if (overlineText) {
       const span = newElement.querySelector('[data-role="overline"]');
       if (overlineText) span.textContent = overlineText;
     }
 
-    if (headlineText) {
-      const span = newElement.querySelector('[data-role="headline"]');
-      if (headlineText) span.textContent = headlineText;
+    // Update the headline text and level
+    const headlineElement = newElement.querySelector('[data-role="headline"]');
+
+    if (headlineElement && headlineText) {
+      // Create a new headline element based on the selected heading level
+      const newHeadline = document.createElement(headingLevel || "h2");
+      newHeadline.setAttribute("data-role", "headline");
+      newHeadline.className = headlineElement.className;
+      newHeadline.textContent = headlineText;
+
+      // Replace the old headline with the new one
+      headlineElement.replaceWith(newHeadline);
     }
 
+    // Update the description text
     if (descriptionText) {
       const span = newElement.querySelector('[data-role="description"]');
       if (descriptionText) span.textContent = descriptionText;
@@ -100,6 +124,7 @@ export const topline = Controller(cardTopline).bind({});
 topline.args = {
   flagFeatured: false,
   overlineText: "Success story",
+  headingLevel: "h2",
   headlineText:
     "How this brand increased data throughput by 255% and reduced costs by 50%",
   descriptionText:
