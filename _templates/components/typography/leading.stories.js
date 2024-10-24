@@ -31,6 +31,7 @@ export const Leading = ({ label = "Default Label for All Sizes" }) => {
   // Define an array of type sizes
   const setValues = [
     { value: "leading-none", label },
+    { value: "leading-tightest", label },
     { value: "leading-tight", label },
     { value: "leading-normal", label },
   ];

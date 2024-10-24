@@ -1,16 +1,29 @@
 [
   {
     "featured": true,
-    "overline": "success story",
+    "overline": "Success story",
     "heading": "How this brand increased data throughput by 255% and reduced costs by 50%",
     "description": "Get the Gartner report that provides recommendations to I&O leaders to enable rapid deployment of business services and deploying workloads to the right locations.",
-    "color": "border-red"
+    "color": "border-violet",
+    "link": "http://equinix.com/an-external-link",
+    "external": true
   },
   {
     "featured": false,
-    "overline": "Network Optimization",
+    "overline": "Success story",
     "heading": "The Data Center is Dead, and Digital Infrastructures Emerge",
-    "description": "Cras eget turpis egestas malesuada. Phasellus bibendum semper lobortis. Volutpat sed. Nulla nec venentis elit. interger id varius tortor, quis bibendum lorem.",
-    "color": "border-red"
+    "description": "Build digital infrastructure securely and rapidly at software speed with automated bare metal and virtual network services to connect and consume network on-demand.",
+    "color": "border-violet",
+    "link": "an-internal-link",
+    "external": false
+  },
+  {
+    "featured": false,
+    "overline": "Success story",
+    "heading": "The world’s most expansive, secure and sustainable data center platform",
+    "description": "Equinix owns and operates a network of 260 International Business Exchange™ (IBX®) data centers located in 72 major metros around the world to make interconnection easy.",
+    "color": "border-violet",
+    "link": "an-internal-link",
+    "external": false
   }
 ]

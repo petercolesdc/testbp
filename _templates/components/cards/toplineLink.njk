@@ -1,10 +1,10 @@
 ---
-permalink: "components/cards/topline.html"
+permalink: "components/cards/topline-link.html"
 ---
 {% set cardSet = cards.topline %}
 
 {%- block content -%}
 {%- for object in cardSet | limit(1) -%}
-{% include '_includes/partials/cards/topline.njk' %}
+{% include '_includes/partials/cards/toplineLink.njk' %}
 {%- endfor -%}
 {%- endblock -%}

@@ -1,5 +1,6 @@
 const plugin = require("tailwindcss/plugin");
 const settingsCore = require("./tailwind.settings.core.js");
+const settingsColors = require("./tailwind.settings.colors.js");
 const settingsScreens = require("./extensions/tailwind.settings.screens.js");
 const settingsFontSizes = require("./extensions/tailwind.settings.fontSizes.js");
 
@@ -42,7 +43,7 @@ module.exports = {
     // THESE SHOULD NOT BE CHANGED OR EDITED
     // You can extend in this file if you wish
     // -------------------------------------------------
-    colors: { ...settingsCore.colors },
+    colors: { ...settingsColors.colors },
     lineHeight: { ...settingsCore.lineHeight },
     letterSpacing: { ...settingsCore.letterSpacing },
     fontFamily: { ...settingsCore.fontFamily },

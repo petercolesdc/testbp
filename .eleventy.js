@@ -9,6 +9,24 @@ const imageResize = require("./_functions/imageResize.js");
 const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
+  //-----------------------------------------------------
+  // Filters
+  //-----------------------------------------------------
+
+  // Date format
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  // Markdown includes
+  const md = new markdownIt({ html: true });
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return md.render(content);
+  });
+
+  // Limit posts
+  eleventyConfig.addFilter("limit", function (arr, limit) {
+    return arr.slice(0, limit);
+  });
+
   // ********************************************************************** //
   // Attach stories controllers for Story book to components on export
   // Define one for every component type, and match paths accordingly
@@ -59,26 +77,7 @@ module.exports = function (eleventyConfig) {
     },
   };
 
-  //-----------------------------------------------------
-  // Filters
-  //-----------------------------------------------------
-
-  // Date format
-  eleventyConfig.addFilter("postDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_FULL);
-  });
-
-  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-
-  // Markdown includes
-  const md = new markdownIt({
-    html: true,
-  });
-
-  eleventyConfig.addPairedShortcode("markdown", (content) => {
-    return md.render(content);
-  });
-
+  // Server options
   eleventyConfig.setServerOptions({
     liveReload: true,
     port: 8080,

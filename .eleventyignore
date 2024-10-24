@@ -1,2 +1,4 @@
 node_modules
+_layouts/**
+storybook-static
 README.md

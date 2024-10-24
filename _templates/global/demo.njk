@@ -1,10 +1,9 @@
 ---
 title: Demo page
 description: Building a page to show how to harness components into a layout
-cardsKeyA: "topline"
 ---
 
-{% set cardSet1 = cards[cardsKeyA] %}
+{% set cardSet1 = cards.topline %}
 
 {# ----------------------------------------------------------------
 Add content into the layout
@@ -16,14 +15,13 @@ Add content into the layout
 {%- endblock -%}
 
 {%- block content -%}
-
-<section class="flex flex-col gap-5">
+<section class="flex flex-col gap-16">
 	<header>
 		<h1 class="text-3xl leading-normal font-bold">{{ title | safe | trim }}</h2>
 	</header>
 	<main class="grid grid-cols-1 gap-7 md:gap-x-10 md:grid-cols-2 xl:grid-cols-3">
-		{%- for object in cardSet1 -%}
-			{% include '_includes/partials/cards/topline.njk' %}
+		{%- for object in cardSet1 | limit(3) -%}
+			{% include '_includes/partials/cards/toplineLink.njk' %}
 		{%- endfor -%}
 	</main>
 </section>

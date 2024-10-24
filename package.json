@@ -1,13 +1,13 @@
 {
   "scripts": {
     "stop": "killall node",
-    "start": "ELEVENTY_ENV=development eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch",
-    "start-inc": "ELEVENTY_ENV=development eleventy --serve --quiet --incremental & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch",
+    "start": "ELEVENTY_ENV=development eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch --minify",
+    "start-inc": "ELEVENTY_ENV=development eleventy --serve --quiet --incremental & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --watch -minify",
     "build-remove": "rm -rf _site/",
     "build-remove-sb": "rm -rf storybook-static",
     "build-assets": "cp -r assets/display _site/assets && cp -r assets/avatars _site/assets && cp -r assets/img _site/assets && cp -r assets/video _site/assets",
-    "build-local": "ELEVENTY_ENV=development eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css",
-    "build-stage": "ELEVENTY_ENV=staging eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css",
+    "build-local": "ELEVENTY_ENV=development eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --minify",
+    "build-stage": "ELEVENTY_ENV=staging eleventy && npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style/style.css --minify",
     "build-all-stage": "npm run build-remove && npm run build-stage",
     "tailwind-config-viewer": "tailwind-config-viewer -o -c, --config styles/tailwind.config.js",
     "watch": "npm run build-remove && npm run build-local && npm run build-assets && npm run start",

@@ -3,9 +3,12 @@
 {% set description = object.description | safe | trim %}
 {% set color = object.color %}
 {% set featured = object.featured %}
-<article 
+{% set href = object.link | url %}
+{% set external = object.external %}
+<a href="{{ href }}"
+	{%- if external == true -%}rel="external"{%- endif -%}
 	data-role="card-topline" 
-	class="flex flex-col gap-5 py-10 px-5 bg-neutral-white border-t-4 {{ color }}">
+	class="flex flex-col gap-5 py-10 px-5 bg-neutral-white border-t-4 {{ color }} transition-shadow duration-300 ease-in-out hover:shadow-lg focus:shadow-lg ring-offset-4 focus-visible:ring-2 focus:outline-none">
 	<span 
 		class="text-xs flex flex-row gap-1 leading-none text-neutral-600 tracking-wide font-bold uppercase">
 		{%- if featured == true -%}
@@ -18,4 +21,4 @@
 		<h2 data-role="headline" class="text-3xl leading-tightest text-neutral-800 font-bold">{{ heading }}</h2>
 		<p data-role="description" class="text-sm leading-tight text-neutral-600 line-clamp-3 font-light">{{ description }}</p>
 	</div>
-</article>
+</a>
