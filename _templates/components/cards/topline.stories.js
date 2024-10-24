@@ -1,4 +1,5 @@
-import cardTopline from "./topline-static.html";
+import cardTopline from "./topline.html";
+import cardToplineLink from "./topline-link.html";
 
 // Define the story
 export default {
@@ -16,6 +17,27 @@ export default {
     },
   },
   argTypes: {
+    elementType: {
+      options: ["link", "article"],
+      control: { type: "radio" },
+      description: "What type of element is it?",
+    },
+    href: {
+      control: "text",
+      description: "Link url",
+      if: {
+        arg: "elementType",
+        eq: "link",
+      },
+    },
+    externalLink: {
+      control: "boolean",
+      description: "Is the link external?",
+      if: {
+        arg: "elementType",
+        eq: "link",
+      },
+    },
     flagFeatured: {
       control: "boolean",
       description: "If it featured?",
@@ -52,6 +74,9 @@ export default {
 const Controller =
   (htmlSnippet) =>
   ({
+    elementType,
+    href,
+    externalLink,
     flagFeatured,
     overlineText,
     headlineText,
@@ -63,12 +88,17 @@ const Controller =
     container.innerHTML = htmlSnippet;
 
     // Get the original element (either <a> or <button> in the template)
-    let element = container.querySelector("article");
+    let element = container.querySelector("article", "a");
 
     // Create a new element depending on elementType
     let newElement;
 
-    newElement = document.createElement("article");
+    // Create based on type selected
+    if (elementType === "link") {
+      newElement = document.createElement("a");
+    } else if (elementType === "article") {
+      newElement = document.createElement("article");
+    }
 
     // Copy over attributes (class, id, aria, etc.)
     [...element.attributes].forEach((attr) =>
@@ -77,6 +107,21 @@ const Controller =
 
     // Preserve inner HTML (including any nested elements)
     newElement.innerHTML = element.innerHTML;
+
+    // Set href for the link
+    if (elementType === "link" && href) {
+      newElement.href = href;
+    } else {
+      newElement.removeAttribute("href");
+      newElement.removeAttribute("rel");
+    }
+
+    // Set if the link is external
+    if (elementType === "link" && externalLink === true) {
+      newElement.setAttribute("rel", "external");
+    } else {
+      newElement.removeAttribute("rel");
+    }
 
     // Add or remove feature label
     const featured = newElement.querySelector('[data-role="flag"]');
@@ -122,6 +167,9 @@ const Controller =
 // Define the individual story using the template
 export const topline = Controller(cardTopline).bind({});
 topline.args = {
+  elementType: "link",
+  href: "#link",
+  externalLink: true,
   flagFeatured: false,
   overlineText: "Success story",
   headingLevel: "h2",
