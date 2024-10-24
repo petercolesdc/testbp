@@ -1,0 +1,16 @@
+{% set overline = object.overline | safe | trim %}
+{% set heading = object.heading | safe | trim %}
+{% set description = object.description | safe | trim %}
+{% set color = object.color %}
+{% set featured = object.featured %}
+<article 
+	data-role="card-topline" 
+	class="flex flex-col gap-5 py-10 px-4 bg-neutral-white border-t-4 {{ color }}">
+	<span 
+		class="text-xs flex flex-row gap-1 leading-none text-neutral-600 tracking-wide font-bold uppercase">{% if featured == true %}<b data-role="flag" class="text-blue">Featured</b> <span data-role="overline">{{ overline }}</span>{% else %}<span data-role="overline">{{ overline }}</span>{% endif %}
+	</span>
+	<div class="flex flex-col gap-3">
+		<h2 data-role="headline" class="text-3xl leading-tight text-neutral-800 font-bold">{{ heading }}</h2>
+		<p data-role="description" class="text-sm leading-tight text-neutral-600 line-clamp-3 font-light">{{ description }}</p>
+	</div>
+</article>

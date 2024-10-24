@@ -1,0 +1,5 @@
+{
+  "showPosts": true,
+  "template": "_layouts/component",
+  "eleventyExcludeFromCollections": false
+}

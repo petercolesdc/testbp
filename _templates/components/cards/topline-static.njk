@@ -1,0 +1,13 @@
+---
+permalink: "components/cards/topline-static.html"
+dataKey: "topline"
+---
+{% set cardSet = cards[dataKey] %}
+
+{%- block content -%}
+{%- for object in cardSet -%}
+	{%- if loop.index0 < 1 -%} 
+		{% include '_includes/partials/cards/topline.njk' %}
+	{%- endif -%}
+{%- endfor -%}
+{%- endblock -%}

@@ -1,7 +1,10 @@
 ---
 title: Demo page
 description: Building a page to show how to harness components into a layout
+cardsKeyA: "topline"
 ---
+
+{% set cardSet1 = cards[cardsKeyA] %}
 
 {# ----------------------------------------------------------------
 Add content into the layout
@@ -16,30 +19,12 @@ Add content into the layout
 
 <section class="flex flex-col gap-5">
 	<header>
-		<h1 class="text-3xl leading-normal font-bold">Demo page example</h2>
+		<h1 class="text-3xl leading-normal font-bold">{{ title | safe | trim }}</h2>
 	</header>
-	<main class="grid grid-cols-1 gap-5 md:gap-x-10 md:grid-cols-2 xl:grid-cols-3">
-		<article class="flex flex-col gap-5 py-7 px-4 bg-neutral-white border-t-2 border-red">
-			<span class="text-xs leading-none text-neutral-600 tracking-wide font-bold uppercase"><b class="text-blue">Featured</b>&nbsp;success story</span>
-			<div class="flex flex-col gap-3">
-				<h2 class="text-3xl leading-tight font-bold">How this brand increased data throughput by 255% and reduced costs by 50%</h2>
-				<p class="text-sm leading-tight text-neutral-600 line-clamp-3">Get the Gartner report that provides recommendations to I&O leaders to enable rapid deployment of business services and deploying workloads to the right locations.</p>
-			</div>
-		</article>
-		<article class="flex flex-col gap-5 py-7 px-4 bg-neutral-white border-t-2 border-red">
-			<span class="text-xs leading-none text-neutral-600 tracking-wide font-bold uppercase"><b class="text-blue">Featured</b>&nbsp;success story</span>
-			<div class="flex flex-col gap-3">
-				<h2 class="text-3xl leading-tight font-bold">How this brand increased data throughput by 255% and reduced costs by 50%</h2>
-				<p class="text-sm leading-tight text-neutral-600 line-clamp-3">Get the Gartner report that provides recommendations to I&O leaders to enable rapid deployment of business services and deploying workloads to the right locations.</p>
-			</div>
-		</article>
-		<article class="flex flex-col gap-5 py-7 px-4 bg-neutral-white border-t-2 border-red">
-			<span class="text-xs leading-none text-neutral-600 tracking-wide font-bold uppercase"><b class="text-blue">Featured</b>&nbsp;success story</span>
-			<div class="flex flex-col gap-3">
-				<h2 class="text-3xl leading-tight font-bold">How this brand increased data throughput by 255% and reduced costs by 50%</h2>
-				<p class="text-sm leading-tight text-neutral-600 line-clamp-3">Get the Gartner report that provides recommendations to I&O leaders to enable rapid deployment of business services and deploying workloads to the right locations.</p>
-			</div>
-		</article>
+	<main class="grid grid-cols-1 gap-7 md:gap-x-10 md:grid-cols-2 xl:grid-cols-3">
+		{%- for object in cardSet1 -%}
+			{% include '_includes/partials/cards/topline.njk' %}
+		{%- endfor -%}
 	</main>
 </section>
 {%- endblock -%}

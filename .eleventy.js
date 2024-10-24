@@ -6,13 +6,9 @@ const fs = require("fs");
 const { DateTime } = require("luxon");
 const markdownIt = require("markdown-it");
 const imageResize = require("./_functions/imageResize.js");
+const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setServerOptions({
-    liveReload: true,
-    port: 8080,
-    showAllHosts: true,
-  });
   // ********************************************************************** //
   // Attach stories controllers for Story book to components on export
   // Define one for every component type, and match paths accordingly
@@ -20,6 +16,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./_templates/components/buttons/*.{js,mdx}": "./components/buttons",
     "./_templates/components/icons/*.{js,mdx}": "./components/icons",
+    "./_templates/components/cards/*.{js,mdx}": "./components/cards",
     "./_templates/components/typography/*.{js,mdx}": "./components/typography",
     "./_templates/components/spacing/*.{js,mdx}": "./components/spacing",
   });
@@ -80,5 +77,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return md.render(content);
+  });
+
+  eleventyConfig.setServerOptions({
+    liveReload: true,
+    port: 8080,
+    showAllHosts: true,
   });
 };

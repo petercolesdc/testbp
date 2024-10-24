@@ -35,40 +35,6 @@
 </a>
 {%- endmacro -%}
 
-{%- macro btnPrimaryElement(text, size, ariaControls, isDisabled, hasIcon) -%}
-<button 
-	{% if ariaControls %}ariaControls="{{ ariaControls | safe | trim }}"{% endif %}
-	{% if isDisabled %}opacity-50 cursor-not-allowed{% endif %}
-	type="button"
-	class="flex {{ size }}
-	flex-row
-	items-center
-	gap-3
-	font-bold
-	py-4 
-	px-5 
-	bg-neutral-800 
-	border-2 
-	border-neutral-800 
-	text-neutral-white 
-	rounded-md 
-	leading-none 
-	no-underline 
-	max-w-max 
-	transition-bg-color 
-	duration-300
-	ring-current
-	ring-offset-2
-	hover:bg-opacity-0
-	hover:text-neutral-800
-	focus:ring-2
-	focus-visible:ring-2
-	focus:outline-none
-	focus:bg-opacity-0
-	focus:text-neutral-800"><span class="label">{{ text | safe | trim }}</span>{% if hasIcon == true %}<span class="icon w-4 h-4 grow-0 shrink-0 translate-x-1">{{ setIcon.icon(file="arrow-right") }}</span>{% endif %}
-</button>
-{%- endmacro -%}
-
 {%- macro btnSecondary(text, href, size, ariaControls, isDisabled, hasIcon) -%}
 <a 
 	href="{{ href }}" 
@@ -107,43 +73,4 @@
 	focus:via-violet-light
 	focus:to-maroon-light"><span class="label">{{ text | safe | trim }}</span>{% if hasIcon == true %}<span class="icon w-4 h-4 grow-0 shrink-0 translate-x-1">{{ setIcon.icon(file="arrow-right") }}</span>{% endif %}
 </a>
-{%- endmacro -%}
-
-{%- macro btnSecondaryElement(text, size, ariaControls, isDisabled, hasIcon) -%}
-<button 
-	{% if ariaControls %}ariaControls="{{ ariaControls | safe | trim }}"{% endif %}
-	{% if isDisabled %}opacity-50 cursor-not-allowed{% endif %}
-	type="button"
-	class="flex {{ size }}
-	flex-row
-	items-center
-	gap-3
-	font-bold
-	py-4 
-	px-5 
-	border-2 
-	border-neutral-800
-	text-neutral-800 
-	rounded-md 
-	leading-none
-	no-underline 
-	max-w-max 
-	transition-bg-color 
-	duration-300 
-	ring-current
-	ring-offset-2
-	bg-gradient-to-r 
-	hover:text-neutral-800 
-	hover:from-blue-light
-	hover:via-violet-light
-	hover:to-maroon-light 
-	focus:ring-2
-	focus-visible:ring-2
-	focus:outline-none
-	focus:text-neutral-800 
-	focus:bg-transparent
-	focus:from-blue-light
-	focus:via-violet-light
-	focus:to-maroon-light"><span class="label">{{ text | safe | trim }}</span>{% if hasIcon == true %}<span class="icon w-4 h-4 grow-0 shrink-0 translate-x-1">{{ setIcon.icon(file="arrow-right") }}</span>{% endif %}
-</button>
 {%- endmacro -%}

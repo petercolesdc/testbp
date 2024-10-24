@@ -17,7 +17,7 @@
     "homepage": "http://petercolesdc.github.io/testbp",
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "storybook build",
-    "deploy": "stage && build-storybook && deploy-storybook"
+    "deploy": "npm run stage && npm run build-storybook && npm run deploy-storybook"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

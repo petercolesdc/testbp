@@ -1,0 +1,16 @@
+[
+  {
+    "featured": true,
+    "overline": "success story",
+    "heading": "How this brand increased data throughput by 255% and reduced costs by 50%",
+    "description": "Get the Gartner report that provides recommendations to I&O leaders to enable rapid deployment of business services and deploying workloads to the right locations.",
+    "color": "border-red"
+  },
+  {
+    "featured": false,
+    "overline": "Network Optimization",
+    "heading": "The Data Center is Dead, and Digital Infrastructures Emerge",
+    "description": "Cras eget turpis egestas malesuada. Phasellus bibendum semper lobortis. Volutpat sed. Nulla nec venentis elit. interger id varius tortor, quis bibendum lorem.",
+    "color": "border-red"
+  }
+]
