@@ -128,10 +128,15 @@ const LinkController =
     // Set the sizes
     if (size === "Small") {
       newElement.classList.add("text-sm");
+      newElement.classList.remove("text-lg");
+      newElement.classList.remove("text-base");
     } else if (size === "Large") {
       newElement.classList.add("text-lg");
+      newElement.classList.remove("text-sm");
+      newElement.classList.remove("text-base");
     } else {
-      newElement.classList.remove("text-xs");
+      newElement.classList.add("text-base");
+      newElement.classList.remove("text-sm");
       newElement.classList.remove("text-lg");
     }
 
