@@ -1,7 +1,5 @@
 module.exports = {
   colors: {
-    transparent: "transparent",
-    current: "currentColor",
     neutral: {
       10: "#F2F3F4",
       50: "#E1E3E7",

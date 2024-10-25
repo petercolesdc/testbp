@@ -37,6 +37,7 @@ module.exports = function (eleventyConfig) {
     "./_templates/components/cards/*.{js,mdx}": "./components/cards",
     "./_templates/components/typography/*.{js,mdx}": "./components/typography",
     "./_templates/components/spacing/*.{js,mdx}": "./components/spacing",
+    "./_templates/components/color/*.{js,mdx}": "./components/color",
   });
 
   // ********************************************************************** //
